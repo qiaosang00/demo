@@ -10,5 +10,6 @@ public interface updateBorrowNumberMapper {
 
     List<updateBorrowNumber> selBorrowNumber(String loan_invoice_id);
     boolean update_loan_invoice_id(String loan_invoice_id,int date);
+    int update_loan_invoice(String loan_invoice_id,int date);
 }
 

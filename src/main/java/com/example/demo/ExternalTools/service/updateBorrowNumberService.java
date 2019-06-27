@@ -17,6 +17,10 @@ public List<updateBorrowNumber> selBorrowNumber(String loan_invoice_id) {
     return updateBorrowNumberMapper.selBorrowNumber(loan_invoice_id);
 }
 
+public int update_loan_invoice(String loan_invoice_id,int date){
+    return updateBorrowNumberMapper.update_loan_invoice(loan_invoice_id,date);
+}
+
 public boolean update_loan_invoice_id(String loan_invoice_id,int date){
     return updateBorrowNumberMapper.update_loan_invoice_id(loan_invoice_id,date);
 }
