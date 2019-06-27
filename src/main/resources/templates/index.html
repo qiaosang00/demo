@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>外接工具平台使用说明</title>
+</head>
+<body>
+<div>
+    <p>删数接口</p>
+    <ol>示例:需要执行两个接口才能清除干净用户</ol>
+    <p>修改借据还款时间接口</p>
+    <ol>示例:还款时间只能往前面提前，不能往后面推</ol>
+    <p>http:ip:port/update/loan_invoice_id?loan_invoice_id=LIAxxxxx&date=31</p>
+    <ul>该请求表示该借据号对应的还款计划提前了31天,借据号一定是LIA开头的String字符串</ul>
+    <p>决策包</p>
+    <table border="1">
+        <tr>
+            <th>授信系统拒绝</th>
+            <th>授信自动通过提现自动通过</th>
+            <th>授信自动通过提现自动拒绝</th>
+            <th>授信自动过提现进人工审批</th>
+        </tr>
+        <tr>
+            <td>1、年龄<18</td>
+            <td>1、年龄18-25岁&工作地址广东省&学历本科</td>
+            <td>1、年龄18-25岁&工作地址上海市&学历非本科</td>
+            <td>1、年龄>18岁&工作地址湖南省</td>
+        </tr>
+        <tr>
+            <td>2、工作地址=江西省或重庆市</td>
+            <td>2、年龄>26岁&工作地址北京市&学历本科</td>
+            <td>2、年龄>26岁&工作地址湖北省&学历本科</td>
+        </tr>
+        <tr>
+            <td>3、年龄>26&工作单位非湖南或湖北&学历非本科</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

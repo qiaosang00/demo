@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.ExternalTools.mapper.updateBorrowNumberMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.ExternalTools.entity.updateBorrowNumber">
+        <result column="loan_invoice_id" javaType="VARCHAR" property="LOAN_INVOICE_ID"/>
+        <result column="START_DATE" javaType="DATE" property="START_DATE"/>
+        <result column="PRE_REPAY_DATE" javaType="DATE" property="PRE_REPAY_DATE"/>
+        <result column="GRANCE_DATE" javaType="DATE" property="GRANCE_DATE"/>
+    </resultMap>
+
+    <select id="selBorrowNumber" resultType="com.example.demo.ExternalTools.entity.updateBorrowNumber">
+        SELECT * FROM asset_repay_plan where loan_invoice_id=#{loan_invoice_id}
+    </select>
+
+    <update id="update_loan_invoice_id">
+        UPDATE asset_repay_plan
+        SET
+        START_DATE = date_add(START_DATE, INTERVAL #{date} DAY),
+        PRE_REPAY_DATE = date_add(PRE_REPAY_DATE, INTERVAL #{date} DAY),
+        GRANCE_DATE = date_add(GRANCE_DATE, INTERVAL #{date} DAY)
+        where LOAN_INVOICE_ID =#{loan_invoice_id}
+    </update>
+
+</mapper>
